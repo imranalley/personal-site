@@ -5,13 +5,15 @@ pipeline {
         stage ('Deploy'){
             steps {
                 script {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'ssh-ubuntu-vpc', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
                     sh "ls"
-                    sh """ssh $DeploymentUser@$DeploymentServer '
+                    sh """ssh -tt $DeploymentUser@$DeploymentServer '
                     ls -la
                     '
                     """
                     sh "ls -la"
                     sh "exit"
+                    } 
                 }
             }
         }
