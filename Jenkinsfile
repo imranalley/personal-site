@@ -8,7 +8,6 @@ pipeline {
                     withCredentials([sshUserPrivateKey(credentialsId: 'ssh-ubuntu-vpc', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
                     sh "ls"
                     sh """ssh -tt $DeploymentUser@$DeploymentServer '
-                    ls -la
                     cd personal-site
                     git status
                     git log
