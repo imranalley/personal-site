@@ -1,4 +1,4 @@
-###Personal Site
+# Personal Site
 + Personal site created with:
 	+ Django Framework
 	+ Python
